@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.projectbackend.model.Pengguna;
@@ -25,6 +26,12 @@ public class UserServiceImpl implements UserService{
 	public String regPengguna(Pengguna req) {
 		String result = "Failed to register!";
 		if(req != null) {
+			String password = req.getPassword();
+			
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			password = passwordEncoder.encode(password);
+			
+			req.setPassword(password);
 			userRepository.save(req);
 			result = "Pengguna Berhasil Terdaftar";
 		}
@@ -72,9 +79,12 @@ public class UserServiceImpl implements UserService{
 		
 		if(isUserExists != null) {
 			Pengguna pengguna = isUserExists.get();
+			
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			result = encoder.matches(password, pengguna.getPassword());
 		}
+		return result;
 	}
-	return false;
 
 
 }
