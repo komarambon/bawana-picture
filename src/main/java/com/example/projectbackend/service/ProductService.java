@@ -13,4 +13,6 @@ public interface ProductService {
 	public String updProduct(Product req);
 
 	public String delProduct(String id);
+	
+	public Product getPenggunaById(String idProduct);
 }

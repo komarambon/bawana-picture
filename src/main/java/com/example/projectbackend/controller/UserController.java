@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projectbackend.model.Pengguna;
@@ -45,7 +46,11 @@ public class UserController {
 		return userService.getPenggunaById(idUser);
 	}
 	@PostMapping(value="{email}")
-	public List<Pengguna> getPenggunaByemail(@PathVariable String email){
+	public Pengguna getPenggunaByemail(@PathVariable String email){
 		return userService.getPenggunaByEmail(email);
+	}
+	@PostMapping("/login")
+	public Boolean isPasswordMatch(@RequestParam("email") String email, @RequestParam("password") String password) {
+			return userService.isPasswordMatch(email, password);
 	}
 }

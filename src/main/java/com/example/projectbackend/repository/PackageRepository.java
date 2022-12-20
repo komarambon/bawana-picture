@@ -10,8 +10,7 @@ import com.example.projectbackend.model.Package;
 public interface PackageRepository extends JpaRepository<Package, String>{
 
 	public Package findByIdPackage(String idPackage);
-
-	public List<Package> findByIdProduct(String idProduct);
 	
 	Optional<Package> findByNamaPackage(String namaPackage);
+	
 }

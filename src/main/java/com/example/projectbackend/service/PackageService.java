@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.projectbackend.model.Package;
 
+//import dto.PackageDto;
+
 public interface PackageService {
 	
 	public List<Package> findAll();
@@ -21,6 +23,9 @@ public interface PackageService {
 
 	public byte[] getPackageImageById(String idPackage);
 
-	public List<Package> getPackageByidProduct(String idProduct);
+	public Package getPackageByidPackage(String idPackage);
 	
+//	public List<PackageDto> getidPackageByDto(String idPackage);
+
+//	public Package getPackageByidPackage(String idPackage);
 }

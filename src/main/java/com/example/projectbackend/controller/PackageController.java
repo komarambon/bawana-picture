@@ -20,6 +20,8 @@ import java.io.IOException;
 import com.example.projectbackend.model.Package;
 import com.example.projectbackend.service.PackageService;
 
+//import dto.PackageDto;
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/projectbackend/package")
@@ -32,9 +34,9 @@ public class PackageController {
 	public List<Package> findAll(){
 		return packageService.findAll();
 	}
-	@PostMapping("idProduct/{idProduct}")
-	public List<Package> getPackageByidProduct(@PathVariable String idProduct){
-		return packageService.getPackageByidProduct(idProduct);
+	@PostMapping("{idPackage}")
+	public Package getPackageByidProduct(@PathVariable String idPackage){
+		return packageService.getPackageByidPackage(idPackage);
 	}
 	@PostMapping
 	public String regPackage(@RequestBody Package reg) {
@@ -56,5 +58,9 @@ public class PackageController {
 	public byte[] getPackageImageById(@PathVariable String id){
 		return packageService.getPackageImageById(id);
 	}
+//	@PostMapping("idPackage/{idPackage}")
+//	public List<PackageDto> getidPackageByDto(@PathVariable String idPackage){
+//		return packageService.getidPackageByDto(idPackage);
+//	}
 }
 	

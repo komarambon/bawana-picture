@@ -18,7 +18,7 @@ import com.example.projectbackend.service.ProductService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/projectbackend/Product")
+@RequestMapping("api/projectbackend/product")
 public class ProductController {
 	
 	@Autowired
@@ -40,6 +40,9 @@ public class ProductController {
 	public String delProduct(@PathVariable String idProduct){
 		return productService.delProduct(idProduct);
 	}
-	
+	@PostMapping("{idProduct}")
+	public Product getPenggunaById(@PathVariable String idProduct){
+		return productService.getPenggunaById(idProduct);
+	}
 }
 	
