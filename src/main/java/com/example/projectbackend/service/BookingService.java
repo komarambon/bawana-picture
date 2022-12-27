@@ -22,5 +22,6 @@ public interface BookingService {
 	public Booking getTransactionCodeByIdTransactionCode(String transactionCode);
 	
 	public byte[] getInvoice() throws IOException, JRException;
+	
 //	public List<BookingDto> getTransactionCodeByDto(String transactionCode);
 }

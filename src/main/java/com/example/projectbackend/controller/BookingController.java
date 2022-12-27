@@ -67,8 +67,8 @@ public class BookingController {
 		return bookingService.getTransactionCodeByIdTransactionCode(transactionCode);
 	}
 	@GetMapping("/invoice/{transactionCode}")
-	public byte[] getInvoice() throws IOException, JRException {
-		return bookingService.getInvoice();
+		public byte[] getInvoice() throws IOException, JRException {
+			return bookingService.getInvoice();
 	}
 	
 	
