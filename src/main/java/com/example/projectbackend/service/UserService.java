@@ -1,6 +1,7 @@
 package com.example.projectbackend.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.projectbackend.model.Pengguna;
 
@@ -16,8 +17,8 @@ public interface UserService {
 
 	public Pengguna getPenggunaById(String idUser);
 	
-	public List<Pengguna> getPenggunaByEmail(String email);
+	public Pengguna getPenggunaByEmail(String email);
 	
-	public boolean isPasswordMatch(String id, String password);
+	public boolean isPasswordMatch(String email, String password);
 
 }

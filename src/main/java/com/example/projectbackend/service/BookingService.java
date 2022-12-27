@@ -1,10 +1,13 @@
 package com.example.projectbackend.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.example.projectbackend.model.Booking;
 
-import dto.BookingDto;
+import net.sf.jasperreports.engine.JRException;
+
+//import dto.BookingDto;
 
 public interface BookingService {
 	
@@ -15,6 +18,10 @@ public interface BookingService {
 	public String updBooking(Booking req);
 
 	public String delBooking(String id);
-
-	public List<BookingDto> getTransactionCodeByDto(String transactionCode);
+	
+	public Booking getTransactionCodeByIdTransactionCode(String transactionCode);
+	
+	public byte[] getInvoice() throws IOException, JRException;
+	
+//	public List<BookingDto> getTransactionCodeByDto(String transactionCode);
 }

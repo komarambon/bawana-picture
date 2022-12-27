@@ -22,14 +22,15 @@ public class UserServiceImpl implements UserService{
 		
 		return userRepository.findAll();
 	}
+	
 	@Override
 	public String regPengguna(Pengguna req) {
 		String result = "Failed to register!";
 		if(req != null) {
 			String password = req.getPassword();
 			
-			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			password = passwordEncoder.encode(password);
+			BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+			password = passEncoder.encode(password);
 			
 			req.setPassword(password);
 			userRepository.save(req);
@@ -69,17 +70,16 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findByIdUser(idUser);
 	}
 	@Override
-	public List<Pengguna> getPenggunaByEmail(String email) {
+	public Pengguna getPenggunaByEmail(String email) {
 		return userRepository.findByEmail(email);
 	}
 	@Override
-	public boolean isPasswordMatch(String id, String password) {
+	public boolean isPasswordMatch(String email, String password) {
 		boolean result = false;
-		Optional<Pengguna> isUserExists = userRepository.findById(id);
+		Pengguna isUserExists = userRepository.findByEmail(email);
 		
 		if(isUserExists != null) {
-			Pengguna pengguna = isUserExists.get();
-			
+			Pengguna pengguna = isUserExists;
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			result = encoder.matches(password, pengguna.getPassword());
 		}
@@ -88,3 +88,5 @@ public class UserServiceImpl implements UserService{
 
 
 }
+
+

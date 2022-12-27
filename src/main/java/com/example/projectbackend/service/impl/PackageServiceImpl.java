@@ -1,6 +1,7 @@
 package com.example.projectbackend.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,15 +10,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.projectbackend.model.Package;
+import com.example.projectbackend.model.Product;
 import com.example.projectbackend.repository.PackageRepository;
+import com.example.projectbackend.repository.ProductRepository;
 import com.example.projectbackend.service.PackageService;
 import com.example.projectbackend.util.PackageUtil;
+
+//import dto.PackageDto;
 
 @Service
 public class PackageServiceImpl implements PackageService{
 	
 	@Autowired
 	PackageRepository packageRepository;
+	
+	ProductRepository productRepository;
 	
 	PackageUtil packageUtil;
 	
@@ -63,8 +70,8 @@ public class PackageServiceImpl implements PackageService{
 		return result;
 		}
 	@Override
-	public List<Package> getPackageByidProduct(String idProduct) {
-		return packageRepository.findByIdProduct(idProduct);
+	public Package getPackageByidPackage(String idPackage) {
+		return packageRepository.findByIdPackage(idPackage);
 	}
 	@Override
 	public String uploadImage(MultipartFile file, String id) throws IOException {
@@ -94,5 +101,26 @@ public class PackageServiceImpl implements PackageService{
 		}
 		return result;
 	}
-}
+//	@Override
+//	public List<PackageDto> getidPackageByDto(String idPackage) {
+//		List <PackageDto> packageDto = new ArrayList<>();
+//		List <Package> packageByIdPackage = packageRepository.findByIdPackage(idPackage);
+//		
+//		for(Package packageByIdPackageLoop : packageByIdPackage) {
+//			PackageDto packageDto2 = new PackageDto();
+//		
+//		Product productByidProduct = productRepository
+//					.findByIdProduct(packageByIdPackageLoop.getIdProduct());
+//		
+//		packageDto2.setIdPackage(packageByIdPackageLoop.getIdPackage());
+//		packageDto2.setNamaPackage(packageByIdPackageLoop.getNamaPackage());
+//		packageDto2.setIdProduct(packageByIdPackageLoop.getIdProduct());
+//		packageDto2.setNamaProduct(productByidProduct.getNamaProduct());
+//		packageDto2.setHarga(packageByIdPackageLoop.getHarga());
+//		packageDto.add(packageDto2);
+//		}
+//		return packageDto;
+//	}
+	}
+
 

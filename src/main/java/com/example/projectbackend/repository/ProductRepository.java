@@ -6,5 +6,7 @@ import com.example.projectbackend.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, String>{
 
-public Product findByIdProduct(String idProduct);
+	public Product findByIdProduct(String idProduct);
+
+
 }

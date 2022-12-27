@@ -57,5 +57,9 @@ public class ProductServiceImpl implements ProductService{
 		
 		return result;
 		}
+	@Override
+	public Product getPenggunaById(String idProduct) {
+		return productRepository.findByIdProduct(idProduct);
+	}
 	}
 

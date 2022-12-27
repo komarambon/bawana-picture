@@ -15,8 +15,8 @@ public class Booking {
 	@Column(name = "TRANSACTION_CODE")
 	private String transactionCode;
 	
-	@Column(name = "ID_USER")
-	private String idUser;
+	@Column(name = "NAME")
+	private String name;
 	
 	@Column(name = "TGL_FOTO")
 	private Date tglFoto;
@@ -24,11 +24,17 @@ public class Booking {
 	@Column(name = "LOKASI_FOTO")
 	private String lokasiFoto;
 	
-	@Column(name = "ID_PACKAGE")
-	private String idPackage;
+	@Column(name = "NAME_PACKAGE")
+	private String namaPackage;
 	
-	@Column(name = "ID_PAYMENT")
-	private String idPayment;
+	@Column(name = "NAME_PAYMENTMETHOD")
+	private String namePaymentmethod;
+	
+	@Column(name = "PRICE")
+	private Integer price;
+	
+	@Column(name = "NAMA_PRODUCT")
+	private String namaProduct;
 
 	public String getTransactionCode() {
 		return transactionCode;
@@ -38,12 +44,12 @@ public class Booking {
 		this.transactionCode = transactionCode;
 	}
 
-	public String getIdUser() {
-		return idUser;
+	public String getName() {
+		return name;
 	}
 
-	public void setIdUser(String idUser) {
-		this.idUser = idUser;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getTglFoto() {
@@ -62,22 +68,36 @@ public class Booking {
 		this.lokasiFoto = lokasiFoto;
 	}
 
-	public String getIdPackage() {
-		return idPackage;
+	public String getNamaPackage() {
+		return namaPackage;
 	}
 
-	public void setIdPackage(String idPackage) {
-		this.idPackage = idPackage;
+	public void setNamaPackage(String namaPackage) {
+		this.namaPackage = namaPackage;
 	}
 
-	public String getIdPayment() {
-		return idPayment;
+	public String getNamePaymentmethod() {
+		return namePaymentmethod;
 	}
 
-	public void setIdPayment(String idPayment) {
-		this.idPayment = idPayment;
+	public void setNamePaymentmethod(String namePaymentmethod) {
+		this.namePaymentmethod = namePaymentmethod;
 	}
 
+	public Integer getPrice() {
+		return price;
+	}
 
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public String getNamaProduct() {
+		return namaProduct;
+	}
+
+	public void setNamaProduct(String namaProduct) {
+		this.namaProduct = namaProduct;
+	}
 	
 }
